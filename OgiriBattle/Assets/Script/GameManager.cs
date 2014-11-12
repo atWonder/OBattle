@@ -13,7 +13,16 @@ public class GameManager : MonoBehaviour {
 	
 	}
 
-	void PlayerSelect(){
-		Debug.Log("click");
+	void PlayerSelect3(){
+		Debug.Log("3Player");
+	}
+	void PlayerSelect4(){
+		Debug.Log("4Player");
+	}
+	void PlayerSelect5(){
+		Debug.Log("5Player");
+	}
+	void PlayerSelect6(){
+		Debug.Log("6Player");
 	}
 }
