@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour {
 	public UIButton bt4;
 	public UIButton bt5;
 	public UIButton bt6;
+	public UILabel PlayerSelectConfirmMes;
 
 	public GameObject PlayerSelectObj;
 
@@ -23,6 +24,9 @@ public class GameManager : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		SlideOut ();
+		if(playerNum != 0){
+			PlayerSelectConfirmMes.text = playerNum + "人で開始します\nよろしいですか？";
+		}
 	}
 
 	void PlayerSelect3(){
