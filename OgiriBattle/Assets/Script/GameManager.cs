@@ -12,4 +12,8 @@ public class GameManager : MonoBehaviour {
 	void Update () {
 	
 	}
+
+	void PlayerSelect(){
+		Debug.Log("click");
+	}
 }
