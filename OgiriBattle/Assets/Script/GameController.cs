@@ -17,6 +17,13 @@ public class GameController : MonoBehaviour {
 			countDownTimer -= Time.deltaTime;
 			int timerInt = (int)Mathf.Round (countDownTimer);
 			timerLb.text = timerInt.ToString ();
+			if(timerInt <= 0){
+				COUNTDOWNING = false;
+			}
 		}
+	}
+
+	void CountDownStart(){
+		COUNTDOWNING = true;
 	}
 }
