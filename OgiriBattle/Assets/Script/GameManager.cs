@@ -58,7 +58,7 @@ public class GameManager : MonoBehaviour {
 
 	void ReturnSelect(){
 		Debug.Log("Return");
-
+		Application.LoadLevel("LocalGame");
 	}
 
 	void ConfirmSelect(){
