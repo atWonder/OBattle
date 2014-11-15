@@ -6,6 +6,8 @@ public class GameController : MonoBehaviour {
 	float countDownTimer = 3;
 	public UILabel timerLb;
 	bool COUNTDOWNING = false;
+	private SpriteRenderer spRenderer;
+
 
 	// Use this for initialization
 	void Start () {
@@ -19,6 +21,8 @@ public class GameController : MonoBehaviour {
 			timerLb.text = timerInt.ToString ();
 			if(timerInt <= 0){
 				COUNTDOWNING = false;
+				timerLb.text = "START";
+
 			}
 		}
 	}

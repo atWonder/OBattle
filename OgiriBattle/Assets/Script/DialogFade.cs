@@ -27,7 +27,7 @@ public class DialogFade : MonoBehaviour {
 		
 		// フェードアウト
 		float alpha = currentRemainTime / fadeTime;
-		var color = spRenderer.color;
+		Color color = spRenderer.color;
 		color.a = alpha;
 		spRenderer.color = color;
 	}

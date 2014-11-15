@@ -9,11 +9,14 @@ public class GameManager : MonoBehaviour {
 	public UIButton bt5;
 	public UIButton bt6;
 	public UILabel PlayerSelectConfirmMes;
+	public UILabel TimerUI;
 
 	public GameObject PlayerSelectObj;
 
 	public int SLIDESPEED;
 	public float SLIDEDIS;
+
+	private GameObject gameController;
 	float timer;
 
 	bool GAMESTART = false;
@@ -78,6 +81,10 @@ public class GameManager : MonoBehaviour {
 					if(CONFIRM){
 						GAMESTART = true;
 						Debug.Log("gameStart");
+						gameController = GameObject.Find ("GameController");
+						TimerUI.transform.Translate(5,5,0);
+						Debug.Log (TimerUI.transform.position.y);
+						gameController.SendMessage("CountDownStart");
 					}
 				}
 
