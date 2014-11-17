@@ -11,6 +11,8 @@ public class GameController : MonoBehaviour {
 	bool COUNTDOWNING = false;
 	bool BarTimerBoo = false;
 	private SpriteRenderer spRenderer;
+	public GameObject bar;
+	float barScale;
 
 
 	// Use this for initialization
@@ -28,12 +30,15 @@ public class GameController : MonoBehaviour {
 				COUNTDOWNING = false;
 				timerLb.text = "START";
 				subjectobj.transform.Translate (5.0f, 5, 0);
+				bar.transform.Translate(10, 0, 0);
 				BarTimerBoo = true;
 			}
 		}
 		if(BarTimerBoo){
 			barTimer -= Time.deltaTime;
 			barTimerLb.text = barTimer.ToString();
+			barScale = barTimer / 20.0f;
+			bar.transform.localScale = new Vector3 (barScale, 0.08f, 1.0f);
 			if(barTimer <= 0){
 				BarTimerBoo = false;
 				Debug.Log("next");
