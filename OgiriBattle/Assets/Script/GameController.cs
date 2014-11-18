@@ -13,7 +13,13 @@ public class GameController : MonoBehaviour {
 	private SpriteRenderer spRenderer;
 	public GameObject bar;
 	float barScale;
+	int playerNum;
 
+	public UIButton Dbt;
+	public UIButton Ebt;
+	public UIButton Fbt;
+
+	public GameObject answerSelect;
 
 	// Use this for initialization
 	void Start () {
@@ -46,11 +52,28 @@ public class GameController : MonoBehaviour {
 				BarTimerBoo = false;
 				bar.transform.Translate(-10, 0, 0);
 				Debug.Log("next");
+				AnswerSelectButtonSet(playerNum);
 			}
 		}
 	}
 
-	void CountDownStart(){
+	void CountDownStart(int n){
 		COUNTDOWNING = true;
+		playerNum = n;
+		Debug.Log (playerNum);
+	}
+
+	void AnswerSelectButtonSet(int n){
+		if(n == 3){
+			Dbt.transform.Translate(-100,0,0);
+			Ebt.transform.Translate(-100,0,0);
+			Fbt.transform.Translate(-100,0,0);
+		}else if(n == 4){
+			Ebt.transform.Translate(-100,0,0);
+			Fbt.transform.Translate(-100,0,0);
+		}else if(n == 5){
+			Fbt.transform.Translate(-100,0,0);
+		}
+		answerSelect.transform.Translate (4.2f, 0.0f, 0.0f);
 	}
 }

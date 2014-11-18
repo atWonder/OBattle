@@ -83,7 +83,7 @@ public class GameManager : MonoBehaviour {
 						Debug.Log("gameStart");
 						gameController = GameObject.Find ("GameController");
 						TimerUI.transform.Translate(5,5,0);
-						gameController.SendMessage("CountDownStart");
+						gameController.SendMessage("CountDownStart",playerNum);
 					}
 				}
 
