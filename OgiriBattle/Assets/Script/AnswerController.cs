@@ -13,6 +13,8 @@ public class AnswerController : MonoBehaviour {
 	int answerNum = 1;
 	int numA, numB, numC, numD, numE, numF;
 
+	bool pushA = false, pushB = false, pushC = false, pushD = false, pushE = false, pushF = false;
+
 	bool answerEnd = false;
 
 	int playerNum;
@@ -27,34 +29,52 @@ public class AnswerController : MonoBehaviour {
 	}
 
 	void AnswerA(){
-		numA = answerNum;
-		answerNum ++;
-		AnswerCheck (playerNum);
+		if(!pushA){
+			numA = answerNum;
+			answerNum ++;
+			AnswerCheck (playerNum);
+			pushA = true;
+		}
 	}
 	void AnswerB(){
-		numB = answerNum;
-		answerNum ++;
-		AnswerCheck (playerNum);
+		if(!pushB){
+			numB = answerNum;
+			answerNum ++;
+			AnswerCheck (playerNum);
+			pushB = true;
+		}
 	}
 	void AnswerC(){
-		numC = answerNum;
-		answerNum ++;
-		AnswerCheck (playerNum);
+		if(!pushC){
+			numC = answerNum;
+			answerNum ++;
+			AnswerCheck (playerNum);
+			pushC = true;
+		}
 	}
 	void AnswerD(){
-		numD = answerNum;
-		answerNum ++;
-		AnswerCheck (playerNum);
+		if(!pushD){
+			numD = answerNum;
+			answerNum ++;
+			AnswerCheck (playerNum);
+			pushD = true;
+		}
 	}
 	void AnswerE(){
-		numE = answerNum;
-		answerNum ++;
-		AnswerCheck (playerNum);
+		if(!pushE){
+			numE = answerNum;
+			answerNum ++;
+			AnswerCheck (playerNum);
+			pushE = true;
+		}
 	}
 	void AnswerF(){
-		numF = answerNum;
-		answerNum ++;
-		AnswerCheck (playerNum);
+		if(!pushF){
+			numF = answerNum;
+			answerNum ++;
+			AnswerCheck (playerNum);
+			pushF = true;
+		}
 	}
 
 	void AnswerCheck(int n){

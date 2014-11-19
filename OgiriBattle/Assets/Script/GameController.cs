@@ -35,12 +35,12 @@ public class GameController : MonoBehaviour {
 			timerLb.text = (timerInt-1).ToString ();
 			if(timerInt == 1){
 				timerLb.text = "START";
-
 			}else if(timerInt <= 0){
 				COUNTDOWNING = false;
-				subjectobj.transform.Translate (5.0f, 5, 0);
+				timerLb.text = "お題";
 				bar.transform.Translate(10, 0, 0);
-				timerLb.transform.Translate(-5,-5,0);
+				subjectobj.transform.Translate (5.0f, 5, 0);
+				timerLb.transform.Translate(0,3,0);
 				BarTimerBoo = true;
 			}
 		}
@@ -52,7 +52,8 @@ public class GameController : MonoBehaviour {
 			if(barTimer <= 0){
 				BarTimerBoo = false;
 				bar.transform.Translate(-10, 0, 0);
-				Debug.Log("next");
+				subjectobj.transform.Translate (5.0f, 5, 0);
+				Debug.Log("AnswerStart");
 				AnswerSelectButtonSet(playerNum);
 			}
 		}
@@ -75,7 +76,8 @@ public class GameController : MonoBehaviour {
 		}else if(n == 5){
 			Fbt.transform.Translate(-100,0,0);
 		}
-		answerSelect.transform.Translate (4.2f, -1.0f, 0.0f);
+		answerSelect.transform.Translate (4.2f, -1.5f, 0.0f);
 		answerController.SendMessage ("PlayerNumGet", playerNum);
+		timerLb.text = "解答開始";
 	}
 }
