@@ -74,6 +74,6 @@ public class GameController : MonoBehaviour {
 		}else if(n == 5){
 			Fbt.transform.Translate(-100,0,0);
 		}
-		answerSelect.transform.Translate (4.2f, 0.0f, 0.0f);
+		answerSelect.transform.Translate (4.2f, -1.0f, 0.0f);
 	}
 }
