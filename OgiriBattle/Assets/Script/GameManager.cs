@@ -23,6 +23,8 @@ public class GameManager : MonoBehaviour {
 	bool CONFIRM = false;
 
 	bool SLIDING = false;
+
+	public GameObject answerController;
 	// Use this for initialization
 	void Start () {
 		timer = SLIDEDIS;

@@ -20,6 +20,7 @@ public class GameController : MonoBehaviour {
 	public UIButton Fbt;
 
 	public GameObject answerSelect;
+	public GameObject answerController;
 
 	// Use this for initialization
 	void Start () {
@@ -75,5 +76,6 @@ public class GameController : MonoBehaviour {
 			Fbt.transform.Translate(-100,0,0);
 		}
 		answerSelect.transform.Translate (4.2f, -1.0f, 0.0f);
+		answerController.SendMessage ("PlayerNumGet", playerNum);
 	}
 }
