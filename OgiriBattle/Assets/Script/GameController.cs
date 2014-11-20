@@ -37,10 +37,10 @@ public class GameController : MonoBehaviour {
 				timerLb.text = "START";
 			}else if(timerInt <= 0){
 				COUNTDOWNING = false;
-				timerLb.text = "お題";
+				timerLb.text = 0.ToString();
 				bar.transform.Translate(10, 0, 0);
 				subjectobj.transform.Translate (5.0f, 5, 0);
-				timerLb.transform.Translate(0,3,0);
+				timerLb.transform.Translate(-5,0,0);
 				BarTimerBoo = true;
 			}
 		}
@@ -78,6 +78,6 @@ public class GameController : MonoBehaviour {
 		}
 		answerSelect.transform.Translate (4.2f, -1.5f, 0.0f);
 		answerController.SendMessage ("PlayerNumGet", playerNum);
-		timerLb.text = "解答開始";
+
 	}
 }

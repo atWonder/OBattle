@@ -10,6 +10,9 @@ public class AnswerController : MonoBehaviour {
 	public UIButton Ebt;
 	public UIButton Fbt;
 
+	public GameObject answerSelect;
+	public GameObject personalAnswer;
+
 	int answerNum = 1;
 	int numA, numB, numC, numD, numE, numF;
 
@@ -18,6 +21,8 @@ public class AnswerController : MonoBehaviour {
 	bool answerEnd = false;
 
 	int playerNum;
+
+
 
 	// Use this for initialization
 	void Start () {
@@ -81,10 +86,14 @@ public class AnswerController : MonoBehaviour {
 		if(answerNum > n){
 			answerEnd = true;
 			Debug.Log("AllAnswerEnd");
+			answerSelect.transform.Translate (0, 10.0f, 0);
+			personalAnswer.transform.Translate(0, 10.0f, 0);
 		}
 	}
 
 	void PlayerNumGet(int n){
 		playerNum = n;
 	}
+
+
 }
