@@ -14,6 +14,7 @@ public class GameController : MonoBehaviour {
 	public GameObject bar;
 	float barScale;
 	int playerNum;
+	float barTimerKeep ;
 
 	public UIButton Dbt;
 	public UIButton Ebt;
@@ -21,6 +22,8 @@ public class GameController : MonoBehaviour {
 
 	public GameObject answerSelect;
 	public GameObject answerController;
+
+	public string state;
 
 	// Use this for initialization
 	void Start () {
@@ -41,21 +44,34 @@ public class GameController : MonoBehaviour {
 				bar.transform.Translate(10, 0, 0);
 				subjectobj.transform.Translate (5.0f, 5, 0);
 				timerLb.transform.Translate(-5,0,0);
+				barTimer = 20.0f;
+				barTimerKeep = barTimer;
 				BarTimerBoo = true;
+				state = "ODAI";
 			}
 		}
 		if(BarTimerBoo){
 			barTimer -= Time.deltaTime;
 			barTimerLb.text = barTimer.ToString();
-			barScale = barTimer / 20.0f;
+			barScale = barTimer / barTimerKeep;
 			bar.transform.localScale = new Vector3 (barScale, 0.08f, 1.0f);
 			if(barTimer <= 0){
 				BarTimerBoo = false;
 				bar.transform.Translate(-5, 0, 0);
 				subjectobj.transform.Translate (5.0f, 5, 0);
 				bar.transform.localScale = new Vector3(1, 0.08f, 1);
-				Debug.Log("AnswerStart");
-				AnswerSelectButtonSet(playerNum);
+				if(state == "ODAI"){
+					Debug.Log("AnswerStart");
+					AnswerSelectButtonSet(playerNum);
+					barTimer = playerNum * 15;
+					barTimerKeep = barTimer;
+					BarTimerBoo = true;
+					state = "KAITOU";
+					bar.transform.Translate(5, 0, 0);
+				}
+				if(state == "KAITOU"){
+
+				}
 			}
 		}
 	}
