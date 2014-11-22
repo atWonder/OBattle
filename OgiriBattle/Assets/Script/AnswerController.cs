@@ -10,6 +10,8 @@ public class AnswerController : MonoBehaviour {
 	public UIButton Ebt;
 	public UIButton Fbt;
 
+	public UILabel personalAnswerTitleLb;
+
 	public GameObject answerSelect;
 	public GameObject personalAnswer;
 
@@ -37,48 +39,48 @@ public class AnswerController : MonoBehaviour {
 		if(!pushA){
 			numA = answerNum;
 			answerNum ++;
-			AnswerCheck (playerNum);
 			pushA = true;
+			PersonalAnswer("A");
 		}
 	}
 	void AnswerB(){
 		if(!pushB){
 			numB = answerNum;
 			answerNum ++;
-			AnswerCheck (playerNum);
 			pushB = true;
+			PersonalAnswer("B");
 		}
 	}
 	void AnswerC(){
 		if(!pushC){
 			numC = answerNum;
 			answerNum ++;
-			AnswerCheck (playerNum);
 			pushC = true;
+			PersonalAnswer("C");
 		}
 	}
 	void AnswerD(){
 		if(!pushD){
 			numD = answerNum;
 			answerNum ++;
-			AnswerCheck (playerNum);
 			pushD = true;
+			PersonalAnswer("D");
 		}
 	}
 	void AnswerE(){
 		if(!pushE){
 			numE = answerNum;
 			answerNum ++;
-			AnswerCheck (playerNum);
 			pushE = true;
+			PersonalAnswer("E");
 		}
 	}
 	void AnswerF(){
 		if(!pushF){
 			numF = answerNum;
 			answerNum ++;
-			AnswerCheck (playerNum);
 			pushF = true;
+			PersonalAnswer("F");
 		}
 	}
 
@@ -86,9 +88,18 @@ public class AnswerController : MonoBehaviour {
 		if(answerNum > n){
 			answerEnd = true;
 			Debug.Log("AllAnswerEnd");
-			answerSelect.transform.Translate (0, 10.0f, 0);
-			personalAnswer.transform.Translate(0, 10.0f, 0);
 		}
+	}
+	void AnswerOK(){
+		answerSelect.transform.Translate (0, -10.0f, 0);
+		personalAnswer.transform.Translate(0, -10.0f, 0);
+		AnswerCheck (playerNum);
+	}
+
+	void PersonalAnswer(string m){
+		personalAnswerTitleLb.text = m + "さんの回答です";
+		answerSelect.transform.Translate (0, 10.0f, 0);
+		personalAnswer.transform.Translate(0, 10.0f, 0);
 	}
 
 	void PlayerNumGet(int n){

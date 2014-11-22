@@ -51,8 +51,9 @@ public class GameController : MonoBehaviour {
 			bar.transform.localScale = new Vector3 (barScale, 0.08f, 1.0f);
 			if(barTimer <= 0){
 				BarTimerBoo = false;
-				bar.transform.Translate(-10, 0, 0);
+				bar.transform.Translate(-5, 0, 0);
 				subjectobj.transform.Translate (5.0f, 5, 0);
+				bar.transform.localScale = new Vector3(1, 0.08f, 1);
 				Debug.Log("AnswerStart");
 				AnswerSelectButtonSet(playerNum);
 			}
