@@ -18,15 +18,20 @@ public class AnswerController : MonoBehaviour {
 	public GameObject personalAnswer;
 
 	int answerNum = 1;
-	int numA, numB, numC, numD, numE, numF;
 
 	bool pushA = false, pushB = false, pushC = false, pushD = false, pushE = false, pushF = false;
 
 	bool answerEnd = false;
-
+	//ANSWER
 	string[] ans;
+	//NUMBER
+	int[] num;
 
-	string[] mem = {"A","B","E","D","E","F"};
+	string[] mem = {"A","B","C","D","E","F"};
+
+	int state;
+	int ANSWER = 0;
+	int VOTE = 1;
 
 	int nowM;
 
@@ -44,51 +49,75 @@ public class AnswerController : MonoBehaviour {
 	}
 
 	void AnswerA(){
-		if(!pushA){
-			numA = answerNum;
-			answerNum ++;
-			pushA = true;
-			PersonalAnswer(0);
+		if (state == ANSWER) {
+			if(!pushA){
+				num[0] = answerNum;
+				answerNum ++;
+				pushA = true;
+				PersonalAnswer(0);
+			}	
+		}else if(state == VOTE){
+			Debug.Log("VOTE CLICK");
 		}
 	}
 	void AnswerB(){
-		if(!pushB){
-			numB = answerNum;
-			answerNum ++;
-			pushB = true;
-			PersonalAnswer(1);
+		if (state == ANSWER) {
+			if(!pushB){
+				num[1] = answerNum;
+				answerNum ++;
+				pushB = true;
+				PersonalAnswer(1);
+			}
+		}else if(state == VOTE){
+			Debug.Log("VOTE CLICK");
 		}
 	}
 	void AnswerC(){
-		if(!pushC){
-			numC = answerNum;
-			answerNum ++;
-			pushC = true;
-			PersonalAnswer(2);
+		if (state == ANSWER) {
+			if(!pushC){
+				num[2] = answerNum;
+				answerNum ++;
+				pushC = true;
+				PersonalAnswer(2);
+			}
+		}else if(state == VOTE){
+			Debug.Log("VOTE CLICK");
 		}
 	}
 	void AnswerD(){
-		if(!pushD){
-			numD = answerNum;
-			answerNum ++;
-			pushD = true;
-			PersonalAnswer(3);
+		if (state == ANSWER) {
+			if(!pushD){
+				num[3] = answerNum;
+				answerNum ++;
+				pushD = true;
+				PersonalAnswer(3);
+			}
+		}else if(state == VOTE){
+			Debug.Log("VOTE CLICK");
 		}
 	}
 	void AnswerE(){
-		if(!pushE){
-			numE = answerNum;
-			answerNum ++;
-			pushE = true;
-			PersonalAnswer(4);
+		if (state == ANSWER) {
+			if(!pushE){
+				num[4] = answerNum;
+				answerNum ++;
+				pushE = true;
+				PersonalAnswer(4);
+			}
+		}else if(state == VOTE){
+			Debug.Log("VOTE CLICK");
 		}
 	}
 	void AnswerF(){
-		if(!pushF){
-			numF = answerNum;
-			answerNum ++;
-			pushF = true;
-			PersonalAnswer(5);
+		if (state == ANSWER) {
+			if(!pushF){
+				num[5] = answerNum;
+				answerNum ++;
+				pushF = true;
+				PersonalAnswer(5);
+			}
+		}else if(state == VOTE){
+			Debug.Log("VOTE CLICK");
 		}
 	}
 
@@ -96,6 +125,8 @@ public class AnswerController : MonoBehaviour {
 		if(answerNum > n){
 			answerEnd = true;
 			Debug.Log("AllAnswerEnd");
+			state = VOTE;
+
 		}
 	}
 	void AnswerOK(){
@@ -103,7 +134,7 @@ public class AnswerController : MonoBehaviour {
 		personalAnswer.transform.Translate(0, -10.0f, 0);
 		AnswerCheck (playerNum);
 		ans [nowM] = input.text;
-		personalAnswerTitleLb.text = ans [nowM];
+		input.text = "ボケを入力！";
 	}
 
 	void PersonalAnswer(int m){
@@ -116,6 +147,7 @@ public class AnswerController : MonoBehaviour {
 	void PlayerNumGet(int n){
 		playerNum = n;
 		ans = new string[n];
+		num = new int[n];
 	}
 
 
