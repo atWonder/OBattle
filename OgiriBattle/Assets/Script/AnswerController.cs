@@ -10,6 +10,8 @@ public class AnswerController : MonoBehaviour {
 	public UIButton Ebt;
 	public UIButton Fbt;
 
+	public UIInput input;
+
 	public UILabel personalAnswerTitleLb;
 
 	public GameObject answerSelect;
@@ -21,6 +23,12 @@ public class AnswerController : MonoBehaviour {
 	bool pushA = false, pushB = false, pushC = false, pushD = false, pushE = false, pushF = false;
 
 	bool answerEnd = false;
+
+	string[] ans;
+
+	string[] mem = {"A","B","E","D","E","F"};
+
+	int nowM;
 
 	int playerNum;
 
@@ -40,7 +48,7 @@ public class AnswerController : MonoBehaviour {
 			numA = answerNum;
 			answerNum ++;
 			pushA = true;
-			PersonalAnswer("A");
+			PersonalAnswer(0);
 		}
 	}
 	void AnswerB(){
@@ -48,7 +56,7 @@ public class AnswerController : MonoBehaviour {
 			numB = answerNum;
 			answerNum ++;
 			pushB = true;
-			PersonalAnswer("B");
+			PersonalAnswer(1);
 		}
 	}
 	void AnswerC(){
@@ -56,7 +64,7 @@ public class AnswerController : MonoBehaviour {
 			numC = answerNum;
 			answerNum ++;
 			pushC = true;
-			PersonalAnswer("C");
+			PersonalAnswer(2);
 		}
 	}
 	void AnswerD(){
@@ -64,7 +72,7 @@ public class AnswerController : MonoBehaviour {
 			numD = answerNum;
 			answerNum ++;
 			pushD = true;
-			PersonalAnswer("D");
+			PersonalAnswer(3);
 		}
 	}
 	void AnswerE(){
@@ -72,7 +80,7 @@ public class AnswerController : MonoBehaviour {
 			numE = answerNum;
 			answerNum ++;
 			pushE = true;
-			PersonalAnswer("E");
+			PersonalAnswer(4);
 		}
 	}
 	void AnswerF(){
@@ -80,7 +88,7 @@ public class AnswerController : MonoBehaviour {
 			numF = answerNum;
 			answerNum ++;
 			pushF = true;
-			PersonalAnswer("F");
+			PersonalAnswer(5);
 		}
 	}
 
@@ -94,16 +102,20 @@ public class AnswerController : MonoBehaviour {
 		answerSelect.transform.Translate (0, -10.0f, 0);
 		personalAnswer.transform.Translate(0, -10.0f, 0);
 		AnswerCheck (playerNum);
+		ans [nowM] = input.text;
+		personalAnswerTitleLb.text = ans [nowM];
 	}
 
-	void PersonalAnswer(string m){
-		personalAnswerTitleLb.text = m + "さんの回答です";
+	void PersonalAnswer(int m){
+		personalAnswerTitleLb.text = mem[m] + "さんの回答です";
 		answerSelect.transform.Translate (0, 10.0f, 0);
 		personalAnswer.transform.Translate(0, 10.0f, 0);
+		nowM = m;
 	}
 
 	void PlayerNumGet(int n){
 		playerNum = n;
+		ans = new string[n];
 	}
 
 
