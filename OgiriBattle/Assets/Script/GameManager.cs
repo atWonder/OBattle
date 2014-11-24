@@ -75,7 +75,6 @@ public class GameManager : MonoBehaviour {
 			if(SLIDING){
 				timer -= Time.deltaTime;
 				PlayerSelectObj.transform.Translate (-Time.deltaTime*SLIDESPEED, 0, 0);
-				Debug.Log(Time.deltaTime);
 				if(timer<= 0.0f){
 					SLIDING = false;
 					timer = SLIDEDIS;

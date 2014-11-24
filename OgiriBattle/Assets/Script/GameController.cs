@@ -79,7 +79,6 @@ public class GameController : MonoBehaviour {
 	void CountDownStart(int n){
 		COUNTDOWNING = true;
 		playerNum = n;
-		Debug.Log (playerNum);
 	}
 
 	void AnswerSelectButtonSet(int n){

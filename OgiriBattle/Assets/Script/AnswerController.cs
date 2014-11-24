@@ -17,6 +17,8 @@ public class AnswerController : MonoBehaviour {
 	public GameObject answerSelect;
 	public GameObject personalAnswer;
 
+	public GameObject personalVoteController;
+
 	int answerNum = 1;
 
 	bool pushA = false, pushB = false, pushC = false, pushD = false, pushE = false, pushF = false;
@@ -148,7 +150,13 @@ public class AnswerController : MonoBehaviour {
 		playerNum = n;
 		ans = new string[n];
 		num = new int[n];
+		personalVoteController.SendMessage ("PlayerNumGet", playerNum);
 	}
+
+	void goToVote(int nowMem){
+
+	}
+
 
 
 }
