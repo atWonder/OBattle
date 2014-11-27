@@ -19,6 +19,8 @@ public class AnswerController : MonoBehaviour {
 
 	public GameObject personalVoteController;
 
+	int buttonPusher;
+
 	int answerNum = 1;
 
 	bool pushA = false, pushB = false, pushC = false, pushD = false, pushE = false, pushF = false;
@@ -51,72 +53,78 @@ public class AnswerController : MonoBehaviour {
 	}
 
 	void AnswerA(){
+		buttonPusher = 0;
 		if (state == ANSWER) {
 			if(!pushA){
-				num[0] = answerNum;
+				num[buttonPusher] = answerNum;
 				answerNum ++;
 				pushA = true;
-				PersonalAnswer(0);
+				PersonalAnswer(buttonPusher);
 			}	
 		}else if(state == VOTE){
-			Debug.Log("VOTE CLICK");
+			personalVoteController.SendMessage("GoPersonalVotePage", buttonPusher);
 		}
 	}
 	void AnswerB(){
+		buttonPusher = 1;
 		if (state == ANSWER) {
 			if(!pushB){
-				num[1] = answerNum;
+				num[buttonPusher] = answerNum;
 				answerNum ++;
 				pushB = true;
-				PersonalAnswer(1);
+				PersonalAnswer(buttonPusher);
 			}
 		}else if(state == VOTE){
 			Debug.Log("VOTE CLICK");
 		}
 	}
 	void AnswerC(){
+		buttonPusher = 2;
 		if (state == ANSWER) {
 			if(!pushC){
-				num[2] = answerNum;
+				num[buttonPusher] = answerNum;
 				answerNum ++;
 				pushC = true;
-				PersonalAnswer(2);
+				PersonalAnswer(buttonPusher);
 			}
 		}else if(state == VOTE){
 			Debug.Log("VOTE CLICK");
 		}
 	}
 	void AnswerD(){
+		buttonPusher = 3;
 		if (state == ANSWER) {
 			if(!pushD){
-				num[3] = answerNum;
+				num[buttonPusher] = answerNum;
 				answerNum ++;
 				pushD = true;
-				PersonalAnswer(3);
+				PersonalAnswer(buttonPusher);
 			}
 		}else if(state == VOTE){
 			Debug.Log("VOTE CLICK");
 		}
 	}
 	void AnswerE(){
+		buttonPusher = 4;
 		if (state == ANSWER) {
 			if(!pushE){
-				num[4] = answerNum;
+				num[buttonPusher] = answerNum;
 				answerNum ++;
 				pushE = true;
-				PersonalAnswer(4);
+				PersonalAnswer(buttonPusher);
 			}
 		}else if(state == VOTE){
 			Debug.Log("VOTE CLICK");
 		}
 	}
 	void AnswerF(){
+		buttonPusher = 5;
 		if (state == ANSWER) {
 			if(!pushF){
-				num[5] = answerNum;
+				num[buttonPusher] = answerNum;
 				answerNum ++;
 				pushF = true;
-				PersonalAnswer(5);
+				PersonalAnswer(buttonPusher);
 			}
 		}else if(state == VOTE){
 			Debug.Log("VOTE CLICK");
@@ -128,7 +136,8 @@ public class AnswerController : MonoBehaviour {
 			answerEnd = true;
 			Debug.Log("AllAnswerEnd");
 			state = VOTE;
-
+			personalVoteController.SendMessage ("PlayerNumGet", playerNum);
+			personalVoteController.SendMessage("AnswerArrGet", ans);
 		}
 	}
 	void AnswerOK(){
@@ -150,7 +159,7 @@ public class AnswerController : MonoBehaviour {
 		playerNum = n;
 		ans = new string[n];
 		num = new int[n];
-		personalVoteController.SendMessage ("PlayerNumGet", playerNum);
+
 	}
 
 	void goToVote(int nowMem){

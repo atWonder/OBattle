@@ -157,6 +157,7 @@
 'Assets/Script/FadeManager.cs'
 'Assets/Script/GameController.cs'
 'Assets/Script/GameManager.cs'
+'Assets/Script/PersonalVoteController.cs'
 'Assets/Script/SingletonMonoBehaviour.cs'
 'Assets/Script/TimeManager.cs'
 -r:'/Applications/Unity/Unity.app/Contents/Frameworks/Mono/lib/mono/unity/System.Runtime.Serialization.dll'
