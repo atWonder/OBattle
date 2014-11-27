@@ -61,6 +61,10 @@ public class PersonalVoteController : MonoBehaviour {
 		Debug.Log ("GoPersonalPage" + nowM.ToString ());
 	}
 
+	void TestTouch(){
+		Debug.Log("VoteComplete");
+	}
+
 	 
 
 }
