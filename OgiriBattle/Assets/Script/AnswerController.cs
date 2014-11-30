@@ -158,9 +158,10 @@ public class AnswerController : MonoBehaviour {
 	void AnswerOK(){
 		answerSelect.transform.Translate (0, -10.0f, 0);
 		personalAnswer.transform.Translate(0, -10.0f, 0);
-		AnswerCheck (playerNum);
 		ans [nowM] = input.text;
 		input.text = "ボケを入力！";
+		AnswerCheck (playerNum);
+
 	}
 
 	void PersonalAnswer(int m){
