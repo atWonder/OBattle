@@ -13,8 +13,10 @@ public class VoteManager : MonoBehaviour {
 	int ran;
 	int voteKey;
 	int[] score;
+	int playerKey;
 
 	public int player;
+
 
 	// Use this for initialization
 	void Start () {
@@ -24,7 +26,7 @@ public class VoteManager : MonoBehaviour {
 		ansLb [2] = answer2;
 		ansLb [3] = answer3;
 		ansLb [4] = answer4;
-		ran = Random.Range (0, playerNum);
+		ran = Random.Range (0, playerNum-1);
 		Debug.Log ("RANDOM NUMBER ::: " + ran);
 		GoPersonalVotePage (player);
 	}
@@ -38,9 +40,14 @@ public class VoteManager : MonoBehaviour {
 	void GoPersonalVotePage(int n){
 		nowM = n;
 		voteKey = ran;
+		if (ran > 5 - nowM) {
+			playerKey = playerNum-1;
+		} else {
+			playerKey = playerNum;
+		}
 		for(int i = 0; i < playerNum; i++){
-			Debug.Log(i.ToString());
-			if (voteKey == playerNum) {
+			//Debug.Log(i.ToString());
+			if (voteKey == playerKey) {
 				if(!forKey){
 					voteKey = 0;
 				}else{
