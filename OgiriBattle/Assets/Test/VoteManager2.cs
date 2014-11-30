@@ -1,24 +1,23 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class PersonalVoteController : MonoBehaviour {
-
-
-	public GameObject personalVote;
-	public GameObject answerSelect;
+public class VoteManager2 : MonoBehaviour {
 
 	int nowMen;
-	int playerNum;
+	public int playerNum = 6;
 	int nowM;
 	public UILabel answer0, answer1, answer2, answer3, answer4; 
-	string[] ans;
+	string[] ans = {"a","b","c","d","e","f"};
 	public UILabel[] ansLb;
 	bool forKey = false;
-	int playerKey;
 
 	int ran;
 	int voteKey;
 	int[] score;
+	int playerKey;
+
+	public int player;
+
 
 	// Use this for initialization
 	void Start () {
@@ -28,27 +27,37 @@ public class PersonalVoteController : MonoBehaviour {
 		ansLb [2] = answer2;
 		ansLb [3] = answer3;
 		ansLb [4] = answer4;
+		ran = Random.Range (0, playerNum-1);
+		Debug.Log ("RANDOM NUMBER ::: " + ran);
+		GoPersonalVotePage (player);
+		score = new int[playerNum];
 
 
+		for(int i = 0; i < 6-playerNum; i++){
+			Destroy()
+		}
 
 	}
-	
+
 	// Update is called once per frame
 	void Update () {
-		
+
 	}
 
-	void PlayerNumGet(int n){
-		playerNum = n;
-		Debug.Log ("PersonalAnswerGetting" + playerNum.ToString ());
-		ran = Random.Range (0,playerNum-1);
-		Debug.Log ("RandomNumber:::" + ran.ToString ());
-		score = new int[playerNum];
-	}
 
-	void AnswerArrGet(string[] a){
-		ans = a;
-	}
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 	void GoPersonalVotePage(int n){
 		nowM = n;
@@ -80,40 +89,25 @@ public class PersonalVoteController : MonoBehaviour {
 			voteKey++;
 
 		}
-		personalVote.transform.Translate (-11, 0, 0);
-		answerSelect.transform.Translate (-11, 0, 0);
-		Debug.Log ("GoPersonalPage" + nowM.ToString ());
+
 	}
+
+
+
 
 	void Vote1(){
-		//ansLb[0+ran]
-		ReturnVoteSelect ();
+		Debug.Log ("I vote ::: "+ans[0]);
 	}
-
 	void Vote2(){
-		ReturnVoteSelect ();
+		Debug.Log ("I vote ::: "+ans[1]);
 	}
-
 	void Vote3(){
-		ReturnVoteSelect ();
+		Debug.Log ("I vote ::: "+ans[2]);
 	}
-
 	void Vote4(){
-		ReturnVoteSelect ();
+		Debug.Log ("I vote ::: "+ans[3]);
 	}
-
 	void Vote5(){
-		ReturnVoteSelect ();
+		Debug.Log ("I vote ::: "+ans[4]);
 	}
-
-	void AttachAnsM(){
-
-	}
-	void ReturnVoteSelect(){
-		forKey = false;
-		personalVote.transform.Translate (11, 0, 0);
-		answerSelect.transform.Translate (11, 0, 0);
-
-	}
-
 }

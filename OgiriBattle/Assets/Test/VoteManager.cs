@@ -29,6 +29,7 @@ public class VoteManager : MonoBehaviour {
 		ran = Random.Range (0, playerNum-1);
 		Debug.Log ("RANDOM NUMBER ::: " + ran);
 		GoPersonalVotePage (player);
+		score = new int[playerNum];
 	}
 	
 	// Update is called once per frame
@@ -69,4 +70,27 @@ public class VoteManager : MonoBehaviour {
 		}
 
 	}
+
+
+
+
+	void Vote1(){
+		Debug.Log ("I vote ::: "+ans[0]);
+	}
+	void Vote2(){
+		Debug.Log ("I vote ::: "+ans[1]);
+	}
+	void Vote3(){
+		Debug.Log ("I vote ::: "+ans[2]);
+	}
+	void Vote4(){
+		Debug.Log ("I vote ::: "+ans[3]);
+	}
+	void Vote5(){
+		Debug.Log ("I vote ::: "+ans[4]);
+	}
+
+
+
+
 }

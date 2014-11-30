@@ -160,5 +160,7 @@
 'Assets/Script/PersonalVoteController.cs'
 'Assets/Script/SingletonMonoBehaviour.cs'
 'Assets/Script/TimeManager.cs'
+'Assets/Test/VoteManager.cs'
+'Assets/Test/VoteManager2.cs'
 -r:'/Applications/Unity/Unity.app/Contents/Frameworks/Mono/lib/mono/unity/System.Runtime.Serialization.dll'
 -r:'/Applications/Unity/Unity.app/Contents/Frameworks/Mono/lib/mono/unity/System.Xml.Linq.dll'
