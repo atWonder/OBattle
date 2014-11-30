@@ -14,6 +14,7 @@ public class PersonalVoteController : MonoBehaviour {
 	string[] ans;
 	public UILabel[] ansLb;
 	bool forKey = false;
+	int playerKey;
 
 	int ran;
 	int voteKey;
@@ -52,9 +53,14 @@ public class PersonalVoteController : MonoBehaviour {
 	void GoPersonalVotePage(int n){
 		nowM = n;
 		voteKey = ran;
+		if (ran > 5 - nowM) {
+			playerKey = playerNum-1;
+		} else {
+			playerKey = playerNum;
+		}
 		for(int i = 0; i < playerNum; i++){
-			Debug.Log(i.ToString());
-			if (voteKey == playerNum) {
+			//Debug.Log(i.ToString());
+			if (voteKey == playerKey) {
 				if(!forKey){
 					voteKey = 0;
 				}else{
@@ -74,7 +80,6 @@ public class PersonalVoteController : MonoBehaviour {
 			voteKey++;
 
 		}
-
 		personalVote.transform.Translate (-11, 0, 0);
 		answerSelect.transform.Translate (-11, 0, 0);
 		Debug.Log ("GoPersonalPage" + nowM.ToString ());

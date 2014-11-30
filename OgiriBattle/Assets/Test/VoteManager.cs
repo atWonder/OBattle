@@ -67,5 +67,6 @@ public class VoteManager : MonoBehaviour {
 			voteKey++;
 
 		}
+
 	}
 }
