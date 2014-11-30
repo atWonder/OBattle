@@ -17,6 +17,7 @@ public class PersonalVoteController : MonoBehaviour {
 
 	int ran;
 	int voteKey;
+	int[] score;
 
 	// Use this for initialization
 	void Start () {
@@ -41,6 +42,7 @@ public class PersonalVoteController : MonoBehaviour {
 		Debug.Log ("PersonalAnswerGetting" + playerNum.ToString ());
 		ran = Random.Range (0,playerNum-1);
 		Debug.Log ("RandomNumber:::" + ran.ToString ());
+		score = new int[playerNum];
 	}
 
 	void AnswerArrGet(string[] a){
@@ -52,7 +54,7 @@ public class PersonalVoteController : MonoBehaviour {
 		voteKey = ran;
 		for(int i = 0; i < playerNum; i++){
 			Debug.Log(i.ToString());
-			if (voteKey == playerNum-1) {
+			if (voteKey == playerNum) {
 				if(!forKey){
 					voteKey = 0;
 				}else{
@@ -68,6 +70,7 @@ public class PersonalVoteController : MonoBehaviour {
 					ansLb[voteKey-1].text = ans[i];
 				}
 			}
+
 			voteKey++;
 
 		}
@@ -78,23 +81,33 @@ public class PersonalVoteController : MonoBehaviour {
 	}
 
 	void Vote1(){
-		
+		ReturnVoteSelect ();
 	}
 
 	void Vote2(){
-	
+		ReturnVoteSelect ();
 	}
 
 	void Vote3(){
-	
+		ReturnVoteSelect ();
 	}
 
 	void Vote4(){
-		
+		ReturnVoteSelect ();
 	}
 
 	void Vote5(){
-	
+		ReturnVoteSelect ();
+	}
+
+	void AttachAnsM(){
+
+	}
+	void ReturnVoteSelect(){
+		forKey = false;
+		personalVote.transform.Translate (11, 0, 0);
+		answerSelect.transform.Translate (11, 0, 0);
+
 	}
 
 }
