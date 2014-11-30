@@ -14,6 +14,10 @@ public class PersonalVoteController : MonoBehaviour {
 	string[] ans;
 	public UILabel[] ansLb;
 	bool forKey = false;
+
+	int ran;
+	int voteKey;
+
 	// Use this for initialization
 	void Start () {
 		ansLb = new UILabel[5];
@@ -22,6 +26,8 @@ public class PersonalVoteController : MonoBehaviour {
 		ansLb [2] = answer2;
 		ansLb [3] = answer3;
 		ansLb [4] = answer4;
+
+
 
 	}
 	
@@ -32,8 +38,9 @@ public class PersonalVoteController : MonoBehaviour {
 
 	void PlayerNumGet(int n){
 		playerNum = n;
-
 		Debug.Log ("PersonalAnswerGetting" + playerNum.ToString ());
+		ran = Random.Range (0,playerNum-1);
+		Debug.Log ("RandomNumber:::" + ran.ToString ());
 	}
 
 	void AnswerArrGet(string[] a){
@@ -42,18 +49,27 @@ public class PersonalVoteController : MonoBehaviour {
 
 	void GoPersonalVotePage(int n){
 		nowM = n;
-
+		voteKey = ran;
 		for(int i = 0; i < playerNum; i++){
 			Debug.Log(i.ToString());
+			if (voteKey == playerNum-1) {
+				if(!forKey){
+					voteKey = 0;
+				}else{
+					voteKey = 1;
+				}
+			}
 			if(i == nowM){
 				forKey = true;
 			}else{
 				if(!forKey){
-					ansLb[i].text = ans[i];
+					ansLb[voteKey].text = ans[i];
 				}else{
-					ansLb[i-1].text = ans[i];
+					ansLb[voteKey-1].text = ans[i];
 				}
 			}
+			voteKey++;
+
 		}
 
 		personalVote.transform.Translate (-11, 0, 0);

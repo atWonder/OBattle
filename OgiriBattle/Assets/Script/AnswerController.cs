@@ -62,7 +62,10 @@ public class AnswerController : MonoBehaviour {
 				PersonalAnswer(buttonPusher);
 			}	
 		}else if(state == VOTE){
-			personalVoteController.SendMessage("GoPersonalVotePage", buttonPusher);
+			if(!pushA){
+				personalVoteController.SendMessage("GoPersonalVotePage", buttonPusher);
+			}
+
 		}
 	}
 	void AnswerB(){
@@ -75,7 +78,9 @@ public class AnswerController : MonoBehaviour {
 				PersonalAnswer(buttonPusher);
 			}
 		}else if(state == VOTE){
-			Debug.Log("VOTE CLICK");
+			if(!pushB){
+				personalVoteController.SendMessage("GoPersonalVotePage", buttonPusher);
+			}
 		}
 	}
 	void AnswerC(){
@@ -88,7 +93,9 @@ public class AnswerController : MonoBehaviour {
 				PersonalAnswer(buttonPusher);
 			}
 		}else if(state == VOTE){
-			Debug.Log("VOTE CLICK");
+			if(!pushC){
+				personalVoteController.SendMessage("GoPersonalVotePage", buttonPusher);
+			}
 		}
 	}
 	void AnswerD(){
@@ -101,7 +108,10 @@ public class AnswerController : MonoBehaviour {
 				PersonalAnswer(buttonPusher);
 			}
 		}else if(state == VOTE){
-			Debug.Log("VOTE CLICK");
+			if(!pushD){
+				personalVoteController.SendMessage("GoPersonalVotePage", buttonPusher);
+			}
+
 		}
 	}
 	void AnswerE(){
@@ -114,7 +124,9 @@ public class AnswerController : MonoBehaviour {
 				PersonalAnswer(buttonPusher);
 			}
 		}else if(state == VOTE){
-			Debug.Log("VOTE CLICK");
+			if(!pushE){
+				personalVoteController.SendMessage("GoPersonalVotePage", buttonPusher);
+			}
 		}
 	}
 	void AnswerF(){
@@ -127,7 +139,9 @@ public class AnswerController : MonoBehaviour {
 				PersonalAnswer(buttonPusher);
 			}
 		}else if(state == VOTE){
-			Debug.Log("VOTE CLICK");
+			if(!pushF){
+				personalVoteController.SendMessage("GoPersonalVotePage", buttonPusher);
+			}
 		}
 	}
 
@@ -136,6 +150,7 @@ public class AnswerController : MonoBehaviour {
 			answerEnd = true;
 			Debug.Log("AllAnswerEnd");
 			state = VOTE;
+			PushReset ();
 			personalVoteController.SendMessage ("PlayerNumGet", playerNum);
 			personalVoteController.SendMessage("AnswerArrGet", ans);
 		}
@@ -162,7 +177,13 @@ public class AnswerController : MonoBehaviour {
 
 	}
 
-	void goToVote(int nowMem){
+	void PushReset(){
+		pushA = false;
+		pushB = false;
+		pushC = false;
+		pushD = false;
+		pushE = false;
+		pushF = false;
 
 	}
 
