@@ -68,12 +68,23 @@ public class PersonalVoteController2 : MonoBehaviour {
 	}
 
 	void GoPersonalVotePage(int n){
+		nowM = n;
 		ansBtArr [n].gameObject.transform.Translate (11, 0, 0);
-
-
-
 		personalVote.transform.Translate (-11, 0, 0);
 		answerSelect.transform.Translate (-11, 0, 0);
+		for(int i = 0; i < playerNum; i ++){
+			if (i == n) {
+				forKey = true;
+			} else {
+				if (forKey) {
+					ansBtArr [i].gameObject.transform.Translate (0, -1.5f * (i-1), 0);
+				} else {
+					ansBtArr [i].gameObject.transform.Translate (0, -1.5f * i, 0);
+				}
+
+			}
+		}
+
 		Debug.Log ("GoPersonalPage" + nowM.ToString ());
 	}
 
@@ -98,6 +109,10 @@ public class PersonalVoteController2 : MonoBehaviour {
 		ReturnVoteSelect ();
 	}
 
+	void Vote6(){
+		ReturnVoteSelect ();
+	}
+
 	void AttachAnsM(){
 
 	}
@@ -105,6 +120,11 @@ public class PersonalVoteController2 : MonoBehaviour {
 		forKey = false;
 		personalVote.transform.Translate (11, 0, 0);
 		answerSelect.transform.Translate (11, 0, 0);
+		for(int i = 0; i < playerNum; i++){
+			ansBtArr [i].gameObject.transform.position = new Vector3 (11, 2.5f, 0);
+		}
+
+		//ansBtArr [nowM].gameObject.transform.Translate (-11, 0, 0);
 
 	}
 
