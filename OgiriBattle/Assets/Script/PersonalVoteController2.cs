@@ -13,11 +13,10 @@ public class PersonalVoteController2 : MonoBehaviour {
 	public UIButton ansBt0, ansBt1, ansBt2, ansBt3, ansBt4, ansBt5;
 	UILabel[] ansLb;
 	UIButton[] ansBtArr;
-
 	string[] ans;
 	bool forKey = false;
 	int playerKey;
-
+	int voteFreq = 0;
 	int ran;
 	int voteKey;
 	int[] score;
@@ -53,6 +52,9 @@ public class PersonalVoteController2 : MonoBehaviour {
 		Debug.Log ("PersonalAnswerGetting" + playerNum.ToString ());
 		Debug.Log ("RandomNumber:::" + ran.ToString ());
 		score = new int[playerNum];
+		for (int i = 0; i < playerNum; i++) {
+			score [i] = 0;
+		}
 	}
 
 	void AnswerArrGet(string[] a){
@@ -108,27 +110,32 @@ public class PersonalVoteController2 : MonoBehaviour {
 	}
 
 	void Vote1(){
-		//ansLb[0+ran]
+		score [0]++;
 		ReturnVoteSelect ();
 	}
 
 	void Vote2(){
+		score [1]++;
 		ReturnVoteSelect ();
 	}
 
 	void Vote3(){
+		score [2]++;
 		ReturnVoteSelect ();
 	}
 
 	void Vote4(){
+		score [3]++;
 		ReturnVoteSelect ();
 	}
 
 	void Vote5(){
+		score [4]++;
 		ReturnVoteSelect ();
 	}
 
 	void Vote6(){
+		score [5]++;
 		ReturnVoteSelect ();
 	}
 
@@ -136,11 +143,18 @@ public class PersonalVoteController2 : MonoBehaviour {
 
 	}
 	void ReturnVoteSelect(){
+		voteFreq++;
 		forKey = false;
 		personalVote.transform.Translate (11, 0, 0);
 		answerSelect.transform.Translate (11, 0, 0);
 		for(int i = 0; i < playerNum; i++){
 			ansBtArr [i].gameObject.transform.position = new Vector3 (11, 2.5f, 0);
+		}
+		if(voteFreq == playerNum){
+			Debug.Log ("AllVoteEnd");
+			for(int i = 0; i < playerNum; i++){
+				Debug.Log (score [i]);
+			}
 		}
 
 	}

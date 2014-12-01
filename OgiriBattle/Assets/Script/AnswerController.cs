@@ -64,6 +64,7 @@ public class AnswerController : MonoBehaviour {
 		}else if(state == VOTE){
 			if(!pushA){
 				personalVoteController.SendMessage("GoPersonalVotePage", buttonPusher);
+				pushA = true;
 			}
 
 		}
@@ -80,6 +81,7 @@ public class AnswerController : MonoBehaviour {
 		}else if(state == VOTE){
 			if(!pushB){
 				personalVoteController.SendMessage("GoPersonalVotePage", buttonPusher);
+				pushB = true;
 			}
 		}
 	}
@@ -95,6 +97,7 @@ public class AnswerController : MonoBehaviour {
 		}else if(state == VOTE){
 			if(!pushC){
 				personalVoteController.SendMessage("GoPersonalVotePage", buttonPusher);
+				pushC = true;
 			}
 		}
 	}
@@ -110,6 +113,7 @@ public class AnswerController : MonoBehaviour {
 		}else if(state == VOTE){
 			if(!pushD){
 				personalVoteController.SendMessage("GoPersonalVotePage", buttonPusher);
+				pushD = true;
 			}
 
 		}
@@ -126,6 +130,7 @@ public class AnswerController : MonoBehaviour {
 		}else if(state == VOTE){
 			if(!pushE){
 				personalVoteController.SendMessage("GoPersonalVotePage", buttonPusher);
+				pushE = true;
 			}
 		}
 	}
@@ -141,6 +146,7 @@ public class AnswerController : MonoBehaviour {
 		}else if(state == VOTE){
 			if(!pushF){
 				personalVoteController.SendMessage("GoPersonalVotePage", buttonPusher);
+				pushF = true;
 			}
 		}
 	}
