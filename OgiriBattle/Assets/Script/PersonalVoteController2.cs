@@ -51,7 +51,6 @@ public class PersonalVoteController2 : MonoBehaviour {
 	void PlayerNumGet(int n){
 		playerNum = n;
 		Debug.Log ("PersonalAnswerGetting" + playerNum.ToString ());
-		ran = Random.Range (0,playerNum-1);
 		Debug.Log ("RandomNumber:::" + ran.ToString ());
 		score = new int[playerNum];
 	}
@@ -72,18 +71,39 @@ public class PersonalVoteController2 : MonoBehaviour {
 		ansBtArr [n].gameObject.transform.Translate (11, 0, 0);
 		personalVote.transform.Translate (-11, 0, 0);
 		answerSelect.transform.Translate (-11, 0, 0);
-		for(int i = 0; i < playerNum; i ++){
-			if (i == n) {
-				forKey = true;
-			} else {
-				if (forKey) {
-					ansBtArr [i].gameObject.transform.Translate (0, -1.5f * (i-1), 0);
-				} else {
-					ansBtArr [i].gameObject.transform.Translate (0, -1.5f * i, 0);
-				}
+		ran = Random.Range (0,2);
+		Debug.Log (ran);
+		if (ran == 0) {
+			for (int i = 0; i < playerNum; i++) {
 
+				if (i == n) {
+					forKey = true;
+				} else {
+					if (forKey) {
+						ansBtArr [i].gameObject.transform.Translate (0, -1.5f * (i - 1), 0);
+					} else {
+						ansBtArr [i].gameObject.transform.Translate (0, -1.5f * i, 0);
+					}
+
+				}
+			}
+		} else {
+			for(int i = 0; i <= playerNum-1; i ++){
+
+				if (playerNum-1-i == n) {
+					forKey = true;
+				} else {
+					if (forKey) {
+						ansBtArr [playerNum-1-i].gameObject.transform.Translate (0, -1.5f * (i-1), 0);
+					} else {
+						ansBtArr [playerNum-1-i].gameObject.transform.Translate (0, -1.5f * i, 0);
+					}
+
+				}
 			}
 		}
+
+
 
 		Debug.Log ("GoPersonalPage" + nowM.ToString ());
 	}
@@ -123,8 +143,6 @@ public class PersonalVoteController2 : MonoBehaviour {
 		for(int i = 0; i < playerNum; i++){
 			ansBtArr [i].gameObject.transform.position = new Vector3 (11, 2.5f, 0);
 		}
-
-		//ansBtArr [nowM].gameObject.transform.Translate (-11, 0, 0);
 
 	}
 
