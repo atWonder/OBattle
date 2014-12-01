@@ -89,7 +89,6 @@ public class PersonalVoteController2 : MonoBehaviour {
 			}
 		} else {
 			for(int i = 0; i <= playerNum-1; i ++){
-
 				if (playerNum-1-i == n) {
 					forKey = true;
 				} else {
