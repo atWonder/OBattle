@@ -171,6 +171,7 @@
      <Compile Include="Assets\Script\GameManager.cs" />
      <Compile Include="Assets\Script\PersonalVoteController.cs" />
      <Compile Include="Assets\Script\PersonalVoteController2.cs" />
+     <Compile Include="Assets\Script\ScoreManager.cs" />
      <Compile Include="Assets\Script\SingletonMonoBehaviour.cs" />
      <Compile Include="Assets\Script\TimeManager.cs" />
      <Compile Include="Assets\Test\VoteManager.cs" />
