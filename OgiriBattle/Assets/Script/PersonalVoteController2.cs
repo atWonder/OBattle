@@ -20,6 +20,7 @@ public class PersonalVoteController2 : MonoBehaviour {
 	int ran;
 	int voteKey;
 	int[] score;
+	public GameObject scoreManager;
 
 	// Use this for initialization
 	void Start () {
@@ -152,9 +153,10 @@ public class PersonalVoteController2 : MonoBehaviour {
 		}
 		if(voteFreq == playerNum){
 			Debug.Log ("AllVoteEnd");
-			for(int i = 0; i < playerNum; i++){
-				Debug.Log (score [i]);
-			}
+			scoreManager.SendMessage ("GetPlayerNum", playerNum);
+			scoreManager.SendMessage ("GetScoreArr", score);
+			scoreManager.SendMessage ("GetAnsArr", ans);
+			scoreManager.SendMessage ("ScoreSort");
 		}
 
 	}

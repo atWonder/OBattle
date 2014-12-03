@@ -165,6 +165,7 @@
      <Compile Include="Assets\NGUI\Scripts\UI\UITooltip.cs" />
      <Compile Include="Assets\NGUI\Scripts\UI\UIViewport.cs" />
      <Compile Include="Assets\Script\AnswerController.cs" />
+     <Compile Include="Assets\Script\Connecter.cs" />
      <Compile Include="Assets\Script\DialogFade.cs" />
      <Compile Include="Assets\Script\FadeManager.cs" />
      <Compile Include="Assets\Script\GameController.cs" />
