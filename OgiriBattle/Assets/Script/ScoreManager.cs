@@ -11,6 +11,10 @@ public class ScoreManager : MonoBehaviour {
 	int[] rank;
 	int[] idx;
 	string[] memAl = { "A", "B", "C", "D", "E", "F" };
+
+	public GameObject resultGameObject;
+	public UILabel winnerLb;
+
 	// Use this for initialization
 	void Start () {
 	
@@ -54,8 +58,15 @@ public class ScoreManager : MonoBehaviour {
 			} else {
 			}
 		}
-
+		resultGameObject.transform.Translate (-11, 0, 0);
 		Debug.Log ("Winner is ..." + memAl [idx [0]]);
+		winnerLb.text = memAl [idx [0]]+"さん";
 
 	}
+
+	void OneMoreGame(){
+		Debug.Log("Return");
+		FadeManager.Instance.LoadLevel("LocalGame",1.5f);
+	}
+
 }

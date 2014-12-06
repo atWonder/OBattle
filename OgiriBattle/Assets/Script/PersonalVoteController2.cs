@@ -157,6 +157,8 @@ public class PersonalVoteController2 : MonoBehaviour {
 			scoreManager.SendMessage ("GetScoreArr", score);
 			scoreManager.SendMessage ("GetAnsArr", ans);
 			scoreManager.SendMessage ("ScoreSort");
+			answerSelect.transform.Translate (-11, 0, 0);
+
 		}
 
 	}
