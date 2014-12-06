@@ -1,11 +1,8 @@
-# ---------------[ Unity generated ]------------------ #
 [Ll]ibrary/
 [Tt]emp/
 [Oo]bj/
 UnityGenerated/
 ProjectSettings/*.asset
- 
-# ----[ Visual Studio / MonoDevelop generated ]------- #
  
 ExportedObj/
 *.svd
@@ -17,8 +14,7 @@ ExportedObj/
 *.user
 *.unityproj
 *.booproj
- 
-# -------------[ OS generated ]------------------------ #
+
 .DS_Store
 .DS_Store?
 ._*
@@ -28,6 +24,5 @@ Icon?
 ehthumbs.db
 Thumbs.db
 
-# -------------[ Build ]------------------------ #
 *.html
 *.unity3d
